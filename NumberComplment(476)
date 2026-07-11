@@ -1,0 +1,50 @@
+#include<stdio.h>
+void intToBinary(int num){
+   int binArr[32];
+   int i=0,j,k;
+   int base=1;
+   int comDec=0;
+   if(num==0){
+      printf("Binary:0\n");
+   }
+   while(num>0){
+      binArr[i]=num%2;
+      num=num/2;
+      i++;
+   }
+   printf("Binary:");
+   for(j=i-1;j>=0;j--){
+      printf("%d",binArr[j]);
+   }
+   printf("\n");
+   printf("complemented\n");
+
+   for(k=0;k<i;k++){
+      if(binArr[k]==0){
+         printf("1");
+      }
+      else
+         printf("0");
+   }
+   printf("\n");
+   for(j=0;j<i;j++){
+      int comBit;
+      if(binArr[j]==0)
+         comBit=1;
+      else
+         comBit=0;
+      if(comBit==1){
+         comDec=comDec+base;
+      }
+      if(j<i-1)
+        base=base*2;
+   }
+   printf("Complemented decimal:%d\n",comDec);
+}
+int main(){
+   int n,i;
+   char str;
+   printf("Enter the number:");
+   scanf("%d",&n);
+   intToBinary(n);
+}
