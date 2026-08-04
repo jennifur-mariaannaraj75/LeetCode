@@ -1,0 +1,57 @@
+class Solution {
+    public List<Integer> findMissingElements(int[] nums) {
+        int temp,i,j;
+        int n=nums.length;
+        List<Integer> res = new ArrayList<>();
+
+        for(i=0;i<n-1;i++){
+            for(j=i+1;j<n;j++){
+                if(nums[i]>nums[j]){
+                    temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                }
+            }
+        }
+        int smallest=nums[0];
+        
+        for(i=0;i<n;i++){
+            while(smallest<nums[i]){
+                res.add(smallest);
+                smallest++;
+
+            }
+            smallest=nums[i]+1;
+
+        }
+        return res;
+    }
+    
+}
+
+Output:
+
+nums =
+[1,4,2,5]
+Output
+[3]
+Expected
+[3]
+
+
+Input
+nums =
+[7,8,6,9]
+Output
+[]
+Expected
+[]
+
+
+Input
+nums =
+[5,1]
+Output
+[2,3,4]
+Expected
+[2,3,4]
