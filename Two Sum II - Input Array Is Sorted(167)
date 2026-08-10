@@ -1,0 +1,35 @@
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int n=numbers.length;
+        //int[] ans = new int[n];
+        ArrayList<Integer> ans = new ArrayList<>();
+        int i,j;
+        int k=0;
+        for(i=0;i<n-1;i++){
+            for(j=i+1;j<n;j++){
+                if(numbers[i]+numbers[j]==target){
+                    //ans[k++]=i+1;
+                    //ans[k++]=j+1;
+                    ans.add(i+1);
+                    ans.add(j+1);
+                    return ans.stream().mapToInt(Integer::intValue).toArray();
+                }
+                
+
+            }
+            
+        }
+        return new int[0];
+    }
+}
+
+
+Input
+numbers =
+[2,3,4]
+target =
+6
+Output
+[1,3]
+Expected
+[1,3]
