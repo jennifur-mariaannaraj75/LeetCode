@@ -1,0 +1,47 @@
+class MyQueue {
+    Stack<Integer> input;
+    Stack<Integer> output;
+    public MyQueue() {
+        input=new Stack<>();
+        output=new Stack<>();
+        
+    }
+    
+    public void push(int x) {
+        input.push(x);
+        
+    }
+    
+    public int pop() {
+        move();
+        return output.pop();
+        
+    }
+    
+    public int peek() {
+        move();
+        return output.peek();
+        
+    }
+    
+    public boolean empty() {
+        return input.isEmpty()&&output.isEmpty();
+        
+    }
+    public void move(){
+        if(output.isEmpty()){
+            while(!input.isEmpty()){
+                output.push(input.pop());
+            }
+        }
+    }
+}
+
+Input
+["MyQueue","push","push","peek","pop","empty"]
+[[],[1],[2],[],[],[]]
+Output
+[null,null,null,1,1,false]
+Expected
+[null,null,null,1,1,false]
+ */
