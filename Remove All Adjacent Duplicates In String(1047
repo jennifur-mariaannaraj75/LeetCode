@@ -1,0 +1,22 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        int[] stack=new int[s.length()];
+        int top=0;
+        for(char c:s.toCharArray()){
+            if(top>0&&stack[top-1]==c)
+                top--;
+            else
+                stack[top++]=c;
+        }
+        return new String(stack,0,top);
+        
+    }
+}
+
+Input
+s =
+"abbaca"
+Output
+"ca"
+Expected
+"ca"
