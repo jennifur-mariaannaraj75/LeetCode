@@ -1,0 +1,13 @@
+class Solution {
+    public boolean divisorGame(int n) {
+        return n%2==0;
+    }
+}
+
+Input
+n =
+2
+Output
+true
+Expected
+true
