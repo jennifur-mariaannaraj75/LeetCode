@@ -20,13 +20,12 @@ class Solution {
         return ans;
     }
 }
-
 Input
-nums =
-[1,2,3,1]
+blocks =
+"WBBWWBBWBW"
 k =
-3
+7
 Output
-true
+3
 Expected
-true
+3
