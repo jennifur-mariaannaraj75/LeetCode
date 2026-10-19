@@ -1,0 +1,32 @@
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> result=new ArrayList<>();
+        int n=s.length(),m=p.length();
+        if(m>n) return result;
+        int[] need=new int[26];
+        int[] window=new int[26];
+        for(char c:p.toCharArray()){
+            need[c-'a']++;
+        }
+        for(int right=0;right<n;right++){
+            window[s.charAt(right)-'a']++;
+            if(right>=m){
+                window[s.charAt(right-m)-'a']--;
+            }
+            if(Arrays.equals(need,window)){
+                result.add(right-m+1);
+            }
+        }
+        return result;
+    }
+}
+
+Input
+s =
+"cbaebabacd"
+p =
+"abc"
+Output
+[0,6]
+Expected
+[0,6]
